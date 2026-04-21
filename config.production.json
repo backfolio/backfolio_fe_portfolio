@@ -1,0 +1,12 @@
+{
+    "auth0": {
+        "domain": "backfolio.us.auth0.com",
+        "clientId": "iVnl2UhKN5zzIIhd25chOMMlLzBPOMPU",
+        "audience": "https://api.backfolio.io",
+        "redirectUri": "https://www.backfolio.io"
+    },
+    "environment": "production",
+    "appInsights": {
+        "connectionString": "InstrumentationKey=314f58f4-aa22-407f-a836-bd86b7c976d9;IngestionEndpoint=https://canadacentral-1.in.applicationinsights.azure.com/;LiveEndpoint=https://canadacentral.livediagnostics.monitor.azure.com/;ApplicationId=81f7dbf5-f489-4ea2-ad89-64fcff4bd5cf"
+    }
+}

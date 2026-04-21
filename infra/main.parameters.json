@@ -1,0 +1,22 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "canadacentral"
+        },
+        "environment": {
+            "value": "prod"
+        },
+        "appServicePlanSku": {
+            "value": {
+                "name": "B1",
+                "tier": "Basic",
+                "capacity": 1
+            }
+        },
+        "azureFrontDoorId": {
+            "value": "07a0a2a8-beaf-46f9-b59f-3302e634f685"
+        }
+    }
+}

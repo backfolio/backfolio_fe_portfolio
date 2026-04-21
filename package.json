@@ -1,0 +1,50 @@
+{
+  "name": "backfolio-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:local": "VITE_API_URL=http://localhost:8000 vite",
+    "dev:azure": "VITE_API_URL=https://backfolio-backend-dtf4azfmgqh6d4b3.canadacentral-01.azurewebsites.net vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@auth0/auth0-react": "^2.8.0",
+    "@microsoft/applicationinsights-react-js": "^17.3.6",
+    "@microsoft/applicationinsights-web": "^3.3.10",
+    "@tanstack/react-query": "^5.90.9",
+    "@types/uuid": "^11.0.0",
+    "chart.js": "^4.5.1",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "date-fns": "^4.1.0",
+    "html2canvas": "^1.4.1",
+    "lucide-react": "^0.553.0",
+    "react": "^18.3.1",
+    "react-chartjs-2": "^5.3.1",
+    "react-dom": "^18.3.1",
+    "react-is": "^19.2.0",
+    "react-router-dom": "^6.22.0",
+    "reactflow": "^11.11.4",
+    "recharts": "^3.3.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.18",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.0.1",
+    "vite": "^5.4.1"
+  }
+}

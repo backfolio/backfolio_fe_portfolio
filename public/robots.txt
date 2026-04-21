@@ -1,0 +1,94 @@
+# Backfolio - robots.txt
+# https://backfolio.io (update with your actual domain)
+
+# ===========================================
+# SEARCH ENGINE CRAWLERS
+# ===========================================
+
+# Allow all major search engines full access
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# ===========================================
+# AI/LLM CRAWLERS
+# ===========================================
+# Uncomment the Disallow lines if you want to prevent
+# AI models from training on your content
+
+# OpenAI's crawler (for ChatGPT training)
+User-agent: GPTBot
+Allow: /
+# Disallow: /
+
+# OpenAI's ChatGPT browsing feature
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic's Claude crawler
+User-agent: anthropic-ai
+Allow: /
+# Disallow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Google's AI training crawler (Gemini)
+User-agent: Google-Extended
+Allow: /
+# Disallow: /
+
+# Common Crawl (used by many AI models)
+User-agent: CCBot
+Allow: /
+# Disallow: /
+
+# Meta/Facebook AI crawler
+User-agent: FacebookBot
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# ===========================================
+# DEFAULT RULES (all other bots)
+# ===========================================
+
+User-agent: *
+Allow: /
+
+# Public pages - explicitly allowed
+Allow: /
+Allow: /login
+Allow: /backtest
+
+# Internal/test pages - block from indexing
+Disallow: /td3-test
+Disallow: /landing-original
+
+# Auth callback paths (not useful to index)
+Disallow: /*?code=
+Disallow: /*?state=
+
+# ===========================================
+# SITEMAP
+# ===========================================
+# Update with your actual domain
+Sitemap: https://backfolio.io/sitemap.xml
+
+
+
+
+
+
+
+

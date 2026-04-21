@@ -1,0 +1,568 @@
+@import url('https://fonts.googleapis.com/css2?family=Virgil&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: #171717;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark {
+  color-scheme: dark;
+  color: #f5f5f5;
+  background-color: #0a0a0a;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 50%, #e0f2fe 100%);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dark body,
+html.dark body {
+  background: linear-gradient(135deg, #0a0a0a 0%, #0f0f1a 50%, #0a0a0a 100%);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+@layer utilities {
+  /* Animation delay utilities */
+  .animation-delay-150 {
+    animation-delay: 150ms;
+  }
+  
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  /* Toast slide-in animation */
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out forwards;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Investment Tool Card Styles */
+  .card-investment {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 245, 255, 0.9) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(168, 85, 247, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.08), 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-investment:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(168, 85, 247, 0.12), 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-color: rgba(168, 85, 247, 0.2);
+  }
+  
+  .card-glass {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-elevated {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-dark {
+    background: linear-gradient(145deg, rgba(23, 23, 23, 0.95) 0%, rgba(38, 38, 38, 0.9) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Legacy card styles (keeping for compatibility) */
+  .card-professional {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-professional:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Investment Tool Button Styles */
+  .btn-investment {
+    background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+    border-radius: 14px;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(168, 85, 247, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: none;
+  }
+  
+  .btn-investment:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(168, 85, 247, 0.25), 0 3px 10px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #9333ea 0%, #6b21a8 100%);
+  }
+  
+  .btn-investment:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.2), 0 2px 6px rgba(0, 0, 0, 0.12);
+  }
+  
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(168, 85, 247, 0.2);
+    border-radius: 14px;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .btn-secondary:hover {
+    background: rgba(168, 85, 247, 0.05);
+    border-color: rgba(168, 85, 247, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.1);
+  }
+  
+  .btn-ghost {
+    background: transparent;
+    border: 2px solid rgba(148, 163, 184, 0.3);
+    border-radius: 14px;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn-ghost:hover {
+    background: rgba(148, 163, 184, 0.05);
+    border-color: rgba(148, 163, 184, 0.4);
+    transform: translateY(-1px);
+  }
+  
+  /* Glass & Premium Effects */
+  .glass-sidebar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(148, 163, 184, 0.15);
+  }
+  
+  .glass-premium {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 245, 255, 0.8) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(168, 85, 247, 0.1);
+  }
+  
+  .glass-premium-solid {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+  }
+  
+  .surface-elevated {
+    background: white;
+    border: 1px solid rgba(148, 163, 184, 0.08);
+  }
+  
+  .surface-premium {
+    background: linear-gradient(145deg, #ffffff 0%, #fafafa 100%);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+  }
+  
+  /* Modern table styles */
+  .table-xtract {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .table-xtract th {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #475569;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .table-xtract td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.875rem;
+    background: white;
+  }
+  
+  .table-xtract tbody tr:hover td {
+    background: #f8fafc;
+  }
+  
+  /* Legacy table styles */
+  .table-professional {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .table-professional th {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #475569;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .table-professional td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.875rem;
+    background: white;
+  }
+  
+  /* Enhanced stat numbers */
+  .stat-number {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+    font-weight: 600;
+  }
+  
+  /* Xtract-inspired hover effects */
+  .hover-xtract {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-xtract:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.04);
+  }
+  
+  /* Investment Tool Hover Effects */
+  .hover-investment {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-investment:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(168, 85, 247, 0.12), 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .hover-lift {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08), 0 3px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .hover-glow {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.3), 0 8px 25px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Interactive States */
+  .interactive {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+  
+  .interactive:hover {
+    transform: translateY(-1px);
+  }
+  
+  .interactive:active {
+    transform: translateY(0);
+  }
+  
+  /* Investment Tool Text Gradients */
+  .text-gradient-investment {
+    background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-secondary {
+    background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-bullish {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-bearish {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #0ea5e9 0%, #9333ea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Background gradients for Xtract-style effects */
+  .bg-gradient-xtract {
+    background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 50%, #faf5ff 100%);
+  }
+  
+  .bg-gradient-ai {
+    background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+  }
+  
+  /* Shadow effects for AI/modern theme */
+  .shadow-ai {
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shadow-primary-lg {
+    box-shadow: 0 12px 40px rgba(14, 165, 233, 0.15), 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Form Styles */
+  .form-investment {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(168, 85, 247, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .form-investment:focus {
+    outline: none;
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1), 0 2px 8px rgba(168, 85, 247, 0.15);
+    background: rgba(255, 255, 255, 1);
+  }
+  
+  .form-investment:hover {
+    border-color: rgba(168, 85, 247, 0.2);
+    background: rgba(255, 255, 255, 1);
+  }
+  
+  /* Typography Enhancements */
+  .text-premium {
+    color: #171717;
+    font-weight: 500;
+  }
+  
+  .text-muted {
+    color: #737373;
+  }
+  
+  .text-accent {
+    color: #a855f7;
+    font-weight: 600;
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(168, 85, 247, 0.4);
+    }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(200%);
+    }
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+
+  /* Error dismiss countdown animation */
+  @keyframes shrink-width {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0%;
+    }
+  }
+
+  .animate-shrink-width {
+    animation: shrink-width 8s linear forwards;
+  }
+
+  /* Slide in from right animation */
+  @keyframes slide-in-from-right {
+    from {
+      opacity: 0;
+      transform: translateX(1.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-in {
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+  }
+
+  .slide-in-from-right-5 {
+    animation-name: slide-in-from-right;
+  }
+
+  /* Float animation for EmptyCanvasState preview */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Date Input Calendar Icon - Dark Mode Support */
+  .dark input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(0.8);
+    cursor: pointer;
+  }
+  
+  .dark input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    filter: invert(1) brightness(1);
+  }
+
+  /* ReactFlow Controls - Dark Mode Support */
+  .dark .react-flow__controls {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+  
+  .dark .react-flow__controls-button {
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .dark .react-flow__controls-button:hover {
+    background: rgba(168, 85, 247, 0.2);
+    color: #ffffff;
+  }
+  
+  .dark .react-flow__controls-button svg {
+    fill: currentColor;
+  }
+  
+  /* Light mode controls (optional refinement) */
+  .react-flow__controls {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .react-flow__controls-button {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .react-flow__controls-button:hover {
+    background: rgba(168, 85, 247, 0.1);
+  }
+  
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+  }
+  
+  /* Safe area for iOS devices */
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .safe-area-pt {
+    padding-top: env(safe-area-inset-top);
+  }
+}

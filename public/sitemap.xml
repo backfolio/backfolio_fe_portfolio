@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage / Landing - Portfolio Backtesting Tool -->
+  <url>
+    <loc>https://backfolio.io/</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Backtest Tool (main feature) - Monte Carlo Simulation, AI Optimization -->
+  <url>
+    <loc>https://backfolio.io/backtest</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Login Page -->
+  <url>
+    <loc>https://backfolio.io/login</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- 
+  Key Features (for future standalone pages):
+  - Portfolio Monte Carlo Simulation
+  - Leveraged ETF Backtesting (TQQQ, UPRO, SOXL)
+  - AI Portfolio Optimization
+  - Ray Dalio All Weather Portfolio Backtest
+  - Rebalance Alerts
+  
+  Protected routes (dashboard, portfolios, etc.) are not included
+  as they require authentication and shouldn't be indexed.
+  -->
+</urlset>

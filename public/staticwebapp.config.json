@@ -1,0 +1,47 @@
+{
+    "navigationFallback": {
+        "rewrite": "/index.html",
+        "exclude": [
+            "/assets/*",
+            "*.{css,scss,js,png,gif,ico,jpg,svg,woff,woff2,xml,txt}",
+            "/google*.html",
+            "/sitemap.xml",
+            "/robots.txt"
+        ]
+    },
+    "routes": [
+        {
+            "route": "/",
+            "allowedRoles": [
+                "anonymous"
+            ]
+        },
+        {
+            "route": "/login",
+            "allowedRoles": [
+                "anonymous"
+            ]
+        },
+        {
+            "route": "/dashboard",
+            "allowedRoles": [
+                "authenticated"
+            ]
+        }
+    ],
+    "responseOverrides": {
+        "404": {
+            "rewrite": "/index.html"
+        }
+    },
+    "globalHeaders": {
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block"
+    },
+    "mimeTypes": {
+        ".json": "application/json",
+        ".woff": "application/font-woff",
+        ".woff2": "application/font-woff2"
+    }
+}

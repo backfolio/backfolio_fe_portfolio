@@ -1,0 +1,12 @@
+{
+    "auth0": {
+        "domain": "dev-iobg5riagaafw7km.us.auth0.com",
+        "clientId": "702BrNIJ0blkNxJpV1MR86oPz87IaDGj",
+        "audience": "https://api.backfolio.io",
+        "redirectUri": "http://localhost:3000"
+    },
+    "environment": "development",
+    "appInsights": {
+        "connectionString": ""
+    }
+}
